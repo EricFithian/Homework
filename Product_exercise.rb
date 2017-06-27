@@ -171,7 +171,7 @@ loop do
             puts "Quantity: #{kale.quantity}"
             puts "SKU: #{kale.serial_number}"
             puts "MSRP: $#{kale.cost}"
-            puts "Price: $#{kale.sell_price}"                 
+            puts "Price: $#{kale.sell_price}"  #Whenever you copy and paste something so many times you should think about how you can DRY it up. At least make a note and DRY it up later.             
           else 
             puts "That is not a valid option. Please try again."
           end     
@@ -179,15 +179,43 @@ loop do
           puts "That is not a valid command, please try again."
         end
 
-
-
     when "3";
-      puts "Placeholder"
-    #would have to involve the restock and sell methods
+      puts "Please pick one of the following categories: deli, sweets, or vegetables."
+      choice = gets.chomp.downcase #Always good to use different things like upcase and then downcase to practice different ways to write things. Both work fine.
 
+      if choice == "deli"
+          puts "Choose between cheese, ham, chicken, sausage, or meatloaf."
+          choice_food = gets.chomp
+          puts "Please select the new quantity for #{choice_food}"
+          updated_quantity = gets.chomp.to_i 
+          if choice_food == "cheese" || choice_food == "ham" || choice_food == "chicken" || choice_food == "sausage" || choice_food == "meatloaf"
+            puts "The new quantity for #{choice_food} is #{updated_quantity}"   
+          else 
+            puts "That is not a valid option. Please try again."
+          end         
+        elsif choice == "sweets"
+          puts "Choose between cheese, ham, chicken, sausage, or meatloaf."
+          choice_food = gets.chomp
+          puts "Please select the new quantity for #{choice_food}"
+          updated_quantity = gets.chomp.to_i 
+          if choice_food == "donuts" || choice_food == "oreos" || choice_food == "cookies" || choice_food == "brownies" || choice_food == "cupcakes"
+            puts "The new quantity for #{choice_food} is #{updated_quantity}"   
+          else 
+            puts "That is not a valid option. Please try again."
+          end     
+        elsif choice == "vegetables"
+          puts "Choose between asparagus, onions, carrots, brocolli, or kale."
+          choice_food = gets.chomp
+          if choice_food == "asparagus" || choice_food == "onions" || choice_food == "carrots" || choice_food == "brocolli" || choice_food == "kale"
+            puts "The new quantity for #{choice_food} is #{updated_quantity}"     
+          else 
+            puts "That is not a valid option. Please try again."
+          end     
+          else
+            puts "That is not a valid command, please try again."
+          end
 
-
-    when "4";
+    when "4"; #You can also solve this by asking them for all the categories and throwing that into a Products.new() given those inputs.
       puts "What category would you like to add to? Please select Deli, Sweets, or Vegetables."
       add = gets.chomp.capitalize
       if add == "Deli"
