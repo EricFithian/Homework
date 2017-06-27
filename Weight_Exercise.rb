@@ -28,7 +28,8 @@ def weight_plate_choices(weight)
   end
 end
 
-while true
+
+# while true
   p "Welcome to our gym! For your first exercise, please tell us how much you want to lift."
   weight = gets.chomp.to_i
   if weight < 45
@@ -38,6 +39,6 @@ while true
   else
     p weight_plate_choices(weight)
   end
-end​
+# end​
 
 
